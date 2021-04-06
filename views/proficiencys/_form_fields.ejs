@@ -1,0 +1,17 @@
+<div>
+    <label>Examination</label>
+    <input type="text" name="examination" value="<%= proficiency.examination %>">
+</div>
+<div>
+    <label>Ratio</label>
+    <input type="text" name="ratio" value="<%= proficiency.ratio %>">
+</div>
+<div>
+    <label>Total</label>
+    <input type="text" name="total" value="<%= proficiency.total %>">
+</div>
+<div>
+    <label>Examination Date</label>
+    <input type="date" name="examinationDate"
+        value="<%= proficiency.examinationDate == null ? '' : proficiency.examinationDate.toISOString().split('T')[0] %>">
+</div>

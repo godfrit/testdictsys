@@ -1,0 +1,52 @@
+<h2>
+  <a href="/users/new">Add User Profile</a>
+</h2>
+<h2>Search User Profile</h2>
+<form action="/users" method="GET">
+  <label>Name</label>
+  <input type="text" name="name" value="<%= searchOptions.name %>">
+  <button type="submit">Search</button>
+</form>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Usernname</th>
+      <th>Password</th>
+      <th>Privilage</th>
+      <th></th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% users.forEach(user=> { %>
+      <tr>
+        <td>
+          <%= user.id.toString().substring(18,25) %>
+        </td>
+        <td>
+          <%= user.name %>
+        </td>
+        <td>
+          <%= user.username %>
+        </td>
+        <td>
+          <%= user.password %>
+        </td>
+        <td>
+          <%= user.privilage %>
+        </td>
+        <td>
+          <a href="/users/<%= user.id %>" class="btn border-shadow update">View</a>
+        </td>
+        <td>
+          <a href="/users/<%= user.id %>/edit" class="btn border-shadow update">Edit</a>
+        </td>
+        <td>
+          <%- include('../partials/deleteForm', { url: `/users/${user.id}` }) %>
+        </td>
+      </tr>
+      <% }) %>
+  </tbody>
+</table>

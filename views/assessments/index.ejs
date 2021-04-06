@@ -1,0 +1,56 @@
+<h2>
+  <a href="/assessments/new">Add Assessment</a>
+</h2>
+<h2>Search Assessment</h2>
+<form action="/assessments" method="GET">
+  <label>Examination Name</label>
+  <input type="text" name="examination" value="<%= searchOptions.examination %>">
+  <button type="submit">Search</button>
+</form>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th>ID</th>
+      <th>Examination</th>
+      <th>Region</th>
+      <th>Ratio</th>
+      <th>Total</th>
+      <th>Date</th>
+      <th></th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% assessments.forEach(assessment=> { %>
+      <tr>
+        <td>
+          <%= assessment.id.toString().substring(18,25) %>
+        </td>
+        <td>
+          <%= assessment.examination %>
+        </td>
+        <td>
+          <%= assessment.region %>
+        </td>
+        <td>
+          <%= assessment.ratio %>
+        </td>
+        <td>
+          <%= assessment.total %>
+        </td>
+        <td>
+          <%= assessment.assessmentDate.toISOString().split('T')[0] %>
+        </td>
+        <td>
+          <a href="/assessments/<%= assessment.id %>" class="btn border-shadow update">View</a>
+        </td>
+        <td>
+          <a href="/assessments/<%= assessment.id %>/edit" class="btn border-shadow update">Edit</a>
+        </td>
+        <td>
+          <%- include('../partials/deleteForm', { url: `/assessments/${assessment.id}` }) %>
+        </td>
+      </tr>
+      <% }) %>
+  </tbody>
+</table>

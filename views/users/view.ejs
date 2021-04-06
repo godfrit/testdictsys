@@ -1,0 +1,19 @@
+<h2>
+  <div>
+    <%= user.id %>
+  </div>
+  <div>
+    <%= user.name %>
+  </div>
+  <div>
+    <%= user.username %>
+  </div>
+  <div>
+    <%= user.password %>
+  </div>
+  <div>
+    <%= user.privilage %>
+  </div>
+</h2>
+<a href="/users/<%= user.id %>/edit">Edit</a>
+<%- include('../partials/deleteForm', { url: `/users/${user.id}` }) %>

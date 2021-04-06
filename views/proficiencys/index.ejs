@@ -1,0 +1,52 @@
+<h2>
+  <a href="/proficiencys/new">Add Proficiency Exam</a>
+</h2>
+<h2>Search Proficiency Exam</h2>
+<form action="/proficiencys" method="GET">
+  <label>Examination Name</label>
+  <input type="text" name="examination" value="<%= searchOptions.examination %>">
+  <button type="submit">Search</button>
+</form>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th>ID</th>
+      <th>Examination</th>
+      <th>Ratio</th>
+      <th>Total</th>
+      <th>Date</th>
+      <th></th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% proficiencys.forEach(proficiency=> { %>
+      <tr>
+        <td>
+          <%= proficiency.id.toString().substring(18,25) %>
+        </td>
+        <td>
+          <%= proficiency.examination %>
+        </td>
+        <td>
+          <%= proficiency.ratio %>
+        </td>
+        <td>
+          <%= proficiency.total %>
+        </td>
+        <td>
+          <%= proficiency.examinationDate.toISOString().split('T')[0] %>
+        </td>
+        <td>
+          <a href="/proficiencys/<%= proficiency.id %>" class="btn border-shadow update">View</a>
+        </td>
+        <td>
+          <a href="/proficiencys/<%= proficiency.id %>/edit" class="btn border-shadow update">Edit</a>
+        </td>
+        <td>
+          <%- include('../partials/deleteForm', { url: `/proficiencys/${proficiency.id}` }) %>
+        </td>
+      </tr>
+      <% }) %>
+  </tbody>
+</table>

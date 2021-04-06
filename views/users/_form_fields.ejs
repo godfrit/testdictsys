@@ -1,0 +1,39 @@
+<div>
+    <label>Name</label>
+    <input type="text" name="name" value="<%= user.name %>">
+</div>
+<div>
+    <label>Username</label>
+    <input type="text" name="username" value="<%= user.username %>">
+</div>
+<div>
+    <label>Password</label>
+    <input type="password" name="password" value="<%= user.password %>">
+</div>
+<% if(user.privilage===null){ %>
+    <div class="form-group">
+        <label for="privilage" class="text-light">Privilage</label>
+        <div class="radio inline">
+            <input type="radio" id="radio-2" name="privilage" value="Admin">
+            <label for="radio-2" class="radio-label">Admin Access</label>
+        </div>
+        <div class="radio inline">
+            <input type="radio" id="radio-3" name="privilage" value="Limited">
+            <label for="radio-3" class="radio-label">Limited Access</label>
+        </div>
+    </div>
+    <% } else { %>
+        <div class="form-group">
+            <label for="privilage" class="text-light">Privilage</label>
+            <div class="radio inline">
+                <input type="radio" id="radio-2" name="privilage" value="Admin" <%=user.privilage=='Admin' ? 'checked'
+                    : '' %>>
+                <label for="radio-2" class="radio-label">Admin Access</label>
+            </div>
+            <div class="radio inline">
+                <input type="radio" id="radio-3" name="privilage" value="Limited" <%=user.privilage=='Limited'
+                    ? 'checked' : '' %>>
+                <label for="radio-3" class="radio-label">Limited Access</label>
+            </div>
+        </div>
+        <% } %>

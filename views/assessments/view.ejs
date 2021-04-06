@@ -1,0 +1,22 @@
+<h2>
+  <div>
+    <%= assessment.id %>
+  </div>
+  <div>
+    <%= assessment.examination %>
+  </div>
+  <div>
+    <%= assessment.region %>
+  </div>
+  <div>
+    <%= assessment.ratio %>
+  </div>
+  <div>
+    <%= assessment.total %>
+  </div>
+  <div>
+    <%= assessment.assessmentDate.toISOString().split('T')[0] %>
+  </div>
+</h2>
+<a href="/assessments/<%= assessment.id %>/edit">Edit</a>
+<%- include('../partials/deleteForm', { url: `/assessments/${assessment.id}` }) %>

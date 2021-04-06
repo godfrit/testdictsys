@@ -1,0 +1,21 @@
+<div>
+    <label>Examination</label>
+    <input type="text" name="examination" value="<%= assessment.examination %>">
+</div>
+<div>
+    <label>Region</label>
+    <input type="text" name="region" value="<%= assessment.region %>">
+</div>
+<div>
+    <label>Ratio</label>
+    <input type="text" name="ratio" value="<%= assessment.ratio %>">
+</div>
+<div>
+    <label>Total</label>
+    <input type="text" name="total" value="<%= assessment.total %>">
+</div>
+<div>
+    <label>Assessment Date</label>
+    <input type="date" name="assessmentDate"
+        value="<%= assessment.assessmentDate == null ? '' : assessment.assessmentDate.toISOString().split('T')[0] %>">
+</div>
