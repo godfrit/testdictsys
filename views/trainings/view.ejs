@@ -1,0 +1,19 @@
+<h2>
+  <div>
+    <%= training.id %>
+  </div>
+  <div>
+    <%= training.name %>
+  </div>
+  <div>
+    <%= training.gender %>
+  </div>
+  <div>
+    <%= training.title %>
+  </div>
+  <div>
+    <%= training.location %>
+  </div>
+</h2>
+<a href="/trainings/<%= training.id %>/edit">Edit</a>
+<%- include('../partials/deleteForm', { url: `/trainings/${training.id}` }) %>
