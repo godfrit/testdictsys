@@ -10,3 +10,39 @@
     <label>Location</label>
     <input type="text" name="location" value="<%= training.location %>">
 </div>
+<% if(training.gender===null){ %>
+    <div class="form-group">
+        <label for="gender" class="text-light">Gender</label>
+        <div class="radio inline">
+            <input type="radio" id="radio-2" name="gender" value="Male">
+            <label for="radio-2" class="radio-label">Male</label>
+        </div>
+        <div class="radio inline">
+            <input type="radio" id="radio-3" name="gender" value="Female">
+            <label for="radio-3" class="radio-label">Female</label>
+        </div>
+        <div class="radio inline">
+            <input type="radio" id="radio-4" name="gender" value="Unspecified" checked>
+            <label for="radio-4" class="radio-label">Not Specified</label>
+        </div>
+    </div>
+    <% } else { %>
+        <div class="form-group">
+            <label for="gender" class="text-light">Gender</label>
+            <div class="radio inline">
+                <input type="radio" id="radio-2" name="gender" value="Male" <%=training.gender=='Male' ? 'checked' : ''
+                    %>>
+                <label for="radio-2" class="radio-label">Male</label>
+            </div>
+            <div class="radio inline">
+                <input type="radio" id="radio-3" name="gender" value="Female" <%=training.gender=='Female' ? 'checked'
+                    : '' %>>
+                <label for="radio-3" class="radio-label">Female</label>
+            </div>
+            <div class="radio inline">
+                <input type="radio" id="radio-4" name="gender" value="Unspecified" <%=training.gender=='Unspecified'
+                    ? 'checked' : '' %>>
+                <label for="radio-4" class="radio-label">Not Specified</label>
+            </div>
+        </div>
+        <% } %>

@@ -1,0 +1,52 @@
+<h2>
+  <a href="/partners/new">Add Partner Company</a>
+</h2>
+<h2>Search Company</h2>
+<form action="/partners" method="GET">
+  <label>Company Name</label>
+  <input type="text" name="companyName" value="<%= searchOptions.companyName %>">
+  <button type="submit">Search</button>
+</form>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th>ID</th>
+      <th>Company Name</th>
+      <th>Company Address</th>
+      <th>Established Date</th>
+      <th>Expiration Date</th>
+      <th></th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% partners.forEach(partner=> { %>
+      <tr>
+        <td>
+          <%= partner.id.toString().substring(18,25) %>
+        </td>
+        <td>
+          <%= partner.companyName %>
+        </td>
+        <td>
+          <%= partner.companyAddress %>
+        </td>
+        <td>
+          <%= partner.partnershipStartedDate.toISOString().split('T')[0] %>
+        </td>
+        <td>
+          <%= partner.partnershipExpirationDate.toISOString().split('T')[0] %>
+        </td>
+        <td>
+          <a href="/partners/<%= partner.id %>" class="btn border-shadow update">View</a>
+        </td>
+        <td>
+          <a href="/partners/<%= partner.id %>/edit" class="btn border-shadow update">Edit</a>
+        </td>
+        <td>
+          <%- include('../partials/deleteForm', { url: `/partners/${partner.id}` }) %>
+        </td>
+      </tr>
+      <% }) %>
+  </tbody>
+</table>

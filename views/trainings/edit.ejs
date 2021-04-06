@@ -1,24 +1,6 @@
 <h2>Edit Trainee</h2>
 <form action="/trainings/<%= training.id %>?_method=PUT" method="POST">
     <%- include('_form_fields') %>
-        <div class="form-group">
-            <label for="gender" class="text-light">Gender</label>
-            <div class="radio inline">
-                <input type="radio" id="radio-2" name="gender" value="Male" <%=training.gender=='Male' ? 'checked' : ''
-                    %>>
-                <label for="radio-2" class="radio-label">Male</label>
-            </div>
-            <div class="radio inline">
-                <input type="radio" id="radio-3" name="gender" value="Female" <%=training.gender=='Female' ? 'checked'
-                    : '' %>>
-                <label for="radio-3" class="radio-label">Female</label>
-            </div>
-            <div class="radio inline">
-                <input type="radio" id="radio-4" name="gender" value="Unspecified" <%=training.gender=='Unspecified'
-                    ? 'checked' : '' %>>
-                <label for="radio-4" class="radio-label">Not Specified</label>
-            </div>
-        </div>
         <a href="/trainings/<%= training.id %>">Cancel</a>
         <button type="submit">Update</button>
 </form>

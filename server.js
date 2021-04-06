@@ -10,6 +10,7 @@ const methodOverride = require('method-override')
 
 const indexRouter = require('./routes/index')
 const trainingRouter = require('./routes/trainings')
+const partnerRouter = require('./routes/partners')
 
 app.set('view engine', 'ejs')
 app.set('views', __dirname + '/views')
@@ -30,5 +31,6 @@ db.once('open', () => console.log('Connected to Mongoose'))
 
 app.use('/', indexRouter)
 app.use('/trainings', trainingRouter)
+app.use('/partners', partnerRouter)
 
 app.listen(process.env.PORT || 3000)

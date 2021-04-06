@@ -1,0 +1,6 @@
+<h2>Edit Company Profile</h2>
+<form action="/partners/<%= partner.id %>?_method=PUT" method="POST">
+    <%- include('_form_fields') %>
+        <a href="/partners/<%= partner.id %>">Cancel</a>
+        <button type="submit">Update</button>
+</form>

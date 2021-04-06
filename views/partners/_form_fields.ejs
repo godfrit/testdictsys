@@ -1,0 +1,22 @@
+<div>
+    <label>Company Name</label>
+    <input type="text" name="companyName" value="<%= partner.companyName %>">
+</div>
+<div>
+    <label>Company Description</label>
+    <input type="text" name="companyDescription" value="<%= partner.companyDescription %>">
+</div>
+<div>
+    <label>Company Address</label>
+    <input type="text" name="companyAddress" value="<%= partner.companyAddress %>">
+</div>
+<div>
+    <label>Established Date</label>
+    <input type="date" name="partnershipStartedDate"
+        value="<%= partner.partnershipStartedDate == null ? '' : partner.partnershipStartedDate.toISOString().split('T')[0] %>">
+</div>
+<div>
+    <label>Expiration Date</label>
+    <input type="date" name="partnershipExpirationDate"
+        value="<%= partner.partnershipExpirationDate == null ? '' : partner.partnershipExpirationDate.toISOString().split('T')[0] %>">
+</div>

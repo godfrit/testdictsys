@@ -1,0 +1,22 @@
+<h2>
+  <div>
+    <%= partner.id %>
+  </div>
+  <div>
+    <%= partner.companyName %>
+  </div>
+  <div>
+    <%= partner.companyDescription %>
+  </div>
+  <div>
+    <%= partner.companyAddress %>
+  </div>
+  <div>
+    <%= partner.partnershipStartedDate.toISOString().split('T')[0] %>
+  </div>
+  <div>
+    <%= partner.partnershipExpirationDate.toISOString().split('T')[0] %>
+  </div>
+</h2>
+<a href="/partners/<%= partner.id %>/edit">Edit</a>
+<%- include('../partials/deleteForm', { url: `/partners/${partner.id}` }) %>

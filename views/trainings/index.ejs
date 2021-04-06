@@ -23,7 +23,7 @@
     <% trainings.forEach(training=> { %>
       <tr>
         <td>
-          <%= training.id %>
+          <%= training.id.toString().substring(18,25) %>
         </td>
         <td>
           <%= training.name %>
