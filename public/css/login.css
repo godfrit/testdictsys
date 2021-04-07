@@ -151,12 +151,16 @@ formLogin{
 	margin-bottom: 4px;
 }
 
+.warning{
+	color: #f60f20;
+}
+
 .btnLogin{
 	display: block;
 	width: 100%;
 	height: 50px;
 	border-radius: 25px;
-    padding-top: 10px;
+    padding-top: 1px;
 	outline: none;
 	border: none;
 	background-image: linear-gradient(to right, #f60f20, #eca2a7, #f60f20);

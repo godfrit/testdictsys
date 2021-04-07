@@ -4,7 +4,7 @@
         <img src="img/logo1.png">
     </div>
     <div class="login-content">
-        <form action="index.html" class="formLogin">
+        <form action="/login" method="POST" class="formLogin">
             <img src="img/logo3.png">
             <h2>Welcome</h2>
             <div class="input-div one">
@@ -12,7 +12,8 @@
                     <i class="fas fa-user"></i>
                 </div>
                 <div class="divLogin">
-                    <input type="text" class="inputLogin" placeholder="Username">
+                    <input type="email" id="email" name="email" class="inputLogin" placeholder="email@email.com"
+                        required>
                 </div>
             </div>
             <div class="input-div one">
@@ -20,10 +21,16 @@
                     <i class="fas fa-lock"></i>
                 </div>
                 <div class="divLogin">
-                    <input type="password" class="inputLogin" placeholder="Password">
+                    <input type="password" class="inputLogin" name="password" placeholder="Password" required>
                 </div>
             </div>
-            <a href="trainings.html" class="btnLogin">Login</a>
+            <button type="submit" class="btnLogin"><i class="fas fa-sign-in-alt"></i></button>
+            <a href="/register">Register</a>
+            <div class="warning">
+                <% if (messages.error) { %>
+                    <%= messages.error %>
+                        <% } %>
+            </div>
         </form>
     </div>
 </div>

@@ -1,63 +1,64 @@
-<main id="site-main">
-  <div class="container">
-    <div class="box-nav d-flex justify-between">
-      <a href="/assessments/new" class="border-shadow">
-        <span class="text-gradient"><i class="fas fa-plus"></i> ENTRY</i></span>
-      </a>
-    </div>
-
-    <form action="/assessments" method="GET">
-      <div class="searchbar">
-        <input type="text" name="examination" value="" placeholder="Node.js , Express.js"
-          value="<%= searchOptions.examination %>">
+<%- include('../partials/header.ejs') %>
+  <main id="site-main">
+    <div class="container">
+      <div class="box-nav d-flex justify-between">
+        <a href="/assessments/new" class="border-shadow">
+          <span class="text-gradient"><i class="fas fa-plus"></i> ENTRY</i></span>
+        </a>
       </div>
-      <button type="submit" class="searchbutton"><span class="text-gradient"><i class="fas fa-search"></i>
-          SEARCH</i></span></button>
-    </form>
-    <table class="table">
-      <thead class="thead-dark">
-        <tr>
-          <th>ID</th>
-          <th>Examination</th>
-          <th>Region</th>
-          <th>Ratio</th>
-          <th>Total</th>
-          <th>Date</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% assessments.forEach(assessment=> { %>
+
+      <form action="/assessments" method="GET">
+        <div class="searchbar">
+          <input type="text" name="examination" value="" placeholder="Node.js , Express.js"
+            value="<%= searchOptions.examination %>">
+        </div>
+        <button type="submit" class="searchbutton"><span class="text-gradient"><i class="fas fa-search"></i>
+            SEARCH</i></span></button>
+      </form>
+      <table class="table">
+        <thead class="thead-dark">
           <tr>
-            <td>
-              <%= assessment.id.toString().substring(18,25) %>
-            </td>
-            <td>
-              <%= assessment.examination %>
-            </td>
-            <td>
-              <%= assessment.region %>
-            </td>
-            <td>
-              <%= assessment.ratio %>
-            </td>
-            <td>
-              <%= assessment.total %>
-            </td>
-            <td>
-              <%= assessment.assessmentDate.toISOString().split('T')[0] %>
-            </td>
-            <td>
-              <a href="/assessments/<%= assessment.id %>" class="btn border-shadow update">
-                <span class="text-gradient"><i class="fas fa-file-alt"></i></span>
-              </a>
-              <a href="/assessments/<%= assessment.id %>/edit" class="btn border-shadow update">
-                <span class="text-gradient"><i class="fas fa-user-edit"></i></span>
-              </a>
-              <%- include('../partials/deleteForm', { url: `/assessments/${assessment.id}` }) %>
-            </td>
+            <th>ID</th>
+            <th>Examination</th>
+            <th>Region</th>
+            <th>Ratio</th>
+            <th>Total</th>
+            <th>Date</th>
+            <th>Action</th>
           </tr>
-          <% }) %>
-      </tbody>
-    </table>
-  </div>
+        </thead>
+        <tbody>
+          <% assessments.forEach(assessment=> { %>
+            <tr>
+              <td>
+                <%= assessment.id.toString().substring(18,25) %>
+              </td>
+              <td>
+                <%= assessment.examination %>
+              </td>
+              <td>
+                <%= assessment.region %>
+              </td>
+              <td>
+                <%= assessment.ratio %>
+              </td>
+              <td>
+                <%= assessment.total %>
+              </td>
+              <td>
+                <%= assessment.assessmentDate.toISOString().split('T')[0] %>
+              </td>
+              <td>
+                <a href="/assessments/<%= assessment.id %>" class="btn border-shadow update">
+                  <span class="text-gradient"><i class="fas fa-file-alt"></i></span>
+                </a>
+                <a href="/assessments/<%= assessment.id %>/edit" class="btn border-shadow update">
+                  <span class="text-gradient"><i class="fas fa-user-edit"></i></span>
+                </a>
+                <%- include('../partials/deleteForm', { url: `/assessments/${assessment.id}` }) %>
+              </td>
+            </tr>
+            <% }) %>
+        </tbody>
+      </table>
+    </div>

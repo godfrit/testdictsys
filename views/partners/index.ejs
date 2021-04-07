@@ -1,60 +1,61 @@
-<main id="site-main">
-  <div class="container">
-    <div class="box-nav d-flex justify-between">
-      <a href="/partners/new" class="border-shadow">
-        <span class="text-gradient"><i class="fas fa-plus"></i> ENTRY</i></span>
-      </a>
-    </div>
-
-    <form action="/partners" method="GET">
-      <div class="searchbar">
-        <input type="text" name="companyName" value="" placeholder="Java Corporation"
-          value="<%= searchOptions.companyName %>">
+<%- include('../partials/header.ejs') %>
+  <main id="site-main">
+    <div class="container">
+      <div class="box-nav d-flex justify-between">
+        <a href="/partners/new" class="border-shadow">
+          <span class="text-gradient"><i class="fas fa-plus"></i> ENTRY</i></span>
+        </a>
       </div>
-      <button type="submit" class="searchbutton"><span class="text-gradient"><i class="fas fa-search"></i>
-          SEARCH</i></span></button>
-    </form>
 
-    <table class="table">
-      <thead class="thead-dark">
-        <tr>
-          <th>ID</th>
-          <th>Company Name</th>
-          <th>Company Address</th>
-          <th>Established Date</th>
-          <th>Expiration Date</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% partners.forEach(partner=> { %>
+      <form action="/partners" method="GET">
+        <div class="searchbar">
+          <input type="text" name="companyName" value="" placeholder="Java Corporation"
+            value="<%= searchOptions.companyName %>">
+        </div>
+        <button type="submit" class="searchbutton"><span class="text-gradient"><i class="fas fa-search"></i>
+            SEARCH</i></span></button>
+      </form>
+
+      <table class="table">
+        <thead class="thead-dark">
           <tr>
-            <td>
-              <%= partner.id.toString().substring(18,25) %>
-            </td>
-            <td>
-              <%= partner.companyName %>
-            </td>
-            <td>
-              <%= partner.companyAddress %>
-            </td>
-            <td>
-              <%= partner.partnershipStartedDate.toISOString().split('T')[0] %>
-            </td>
-            <td>
-              <%= partner.partnershipExpirationDate.toISOString().split('T')[0] %>
-            </td>
-            <td>
-              <a href="/partners/<%= partner.id %>" class="btn border-shadow update">
-                <span class="text-gradient"><i class="fas fa-file-alt"></i></span>
-              </a>
-              <a href="/partners/<%= partner.id %>/edit" class="btn border-shadow update">
-                <span class="text-gradient"><i class="fas fa-user-edit"></i></span>
-              </a>
-              <%- include('../partials/deleteForm', { url: `/partners/${partner.id}` }) %>
-            </td>
+            <th>ID</th>
+            <th>Company Name</th>
+            <th>Company Address</th>
+            <th>Established Date</th>
+            <th>Expiration Date</th>
+            <th>Action</th>
           </tr>
-          <% }) %>
-      </tbody>
-    </table>
-  </div>
+        </thead>
+        <tbody>
+          <% partners.forEach(partner=> { %>
+            <tr>
+              <td>
+                <%= partner.id.toString().substring(18,25) %>
+              </td>
+              <td>
+                <%= partner.companyName %>
+              </td>
+              <td>
+                <%= partner.companyAddress %>
+              </td>
+              <td>
+                <%= partner.partnershipStartedDate.toISOString().split('T')[0] %>
+              </td>
+              <td>
+                <%= partner.partnershipExpirationDate.toISOString().split('T')[0] %>
+              </td>
+              <td>
+                <a href="/partners/<%= partner.id %>" class="btn border-shadow update">
+                  <span class="text-gradient"><i class="fas fa-file-alt"></i></span>
+                </a>
+                <a href="/partners/<%= partner.id %>/edit" class="btn border-shadow update">
+                  <span class="text-gradient"><i class="fas fa-user-edit"></i></span>
+                </a>
+                <%- include('../partials/deleteForm', { url: `/partners/${partner.id}` }) %>
+              </td>
+            </tr>
+            <% }) %>
+        </tbody>
+      </table>
+    </div>

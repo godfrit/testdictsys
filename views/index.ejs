@@ -1,17 +1,31 @@
-<section class="home">
-    <img src="/img/home-img.jpg" class="home-img" alt="" />
-    <img src="/img/background.png" class="home-bg" alt="" />
-    <div class="home-content">
-        <h1>
-            This is a prototype <br />
-            website for DICT.
-        </h1>
-        <p>
-            "The Department of Information and Communications Technology is mandated by Republic Act (RA) 10844 or
-            the DICT Act of 2015 to be the primary policy, planning, coordinating, implementing, and administrative
-            entity of the Executive Branch of the government that will plan, develop, and promote the national ICT
-            development agenda.
-        </p>
-        <a href="/login" class="btnHL">User Login</a>
-    </div>
-</section>
+<%- include('partials/header.ejs') %>
+    <section class="home">
+        <img src="/img/home-img.jpg" class="home-img" alt="" />
+        <img src="/img/background.png" class="home-bg" alt="" />
+        <div class="home-content">
+            <h2>
+                Welcome <%= name %>.
+            </h2>
+            <br>
+            <h1>
+                This is a prototype <br />
+                website for DICT.
+            </h1>
+            <p>
+                "The Department of Information and Communications Technology is mandated by Republic Act (RA) 10844 or
+                the DICT Act of 2015 to be the primary policy, planning, coordinating, implementing, and administrative
+                entity of the Executive Branch of the government that will plan, develop, and promote the national ICT
+                development agenda.
+            </p>
+
+            <form action="/logout?_method=DELETE" method="POST" class="form-group" id="add_user">
+                <div class="new_user">
+                    <div class="form-group1">
+                        <button type="submit" class="btn text-dark update">Log Out</button>
+                    </div>
+                </div>
+        </div>
+        </form>
+
+        </div>
+    </section>

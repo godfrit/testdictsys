@@ -28,7 +28,7 @@ router.get('/new', (req, res) => {
 router.post('/', async (req, res) => {
   const user = new User({
     name: req.body.name,
-    username: req.body.username,
+    email: req.body.email,
     password: req.body.password,
     privilage: req.body.privilage
   })
@@ -73,7 +73,7 @@ router.put('/:id', async (req, res) => {
   try {
     user = await User.findById(req.params.id)
     user.name = req.body.name,
-      user.username = req.body.username,
+      user.email = req.body.email,
       user.password = req.body.password,
       user.privilage = req.body.privilage
     await user.save()
