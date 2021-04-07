@@ -1,19 +1,32 @@
-<h2>
-  <div>
-    <%= user.id %>
+<main id="site-main">
+  <div class="container">
+    <h2>
+      <div>
+        USER ID: <%= user.id %>
+      </div>
+      <div>
+        NAME: <%= user.name %>
+      </div>
+      <div>
+        USERNMAME: <%= user.username %>
+      </div>
+      <div>
+        PASSWORD: <%= user.password %>
+      </div>
+      <div>
+        PRIVILAGE: <%= user.privilage %>
+      </div>
+    </h2>
+    <div class="box-nav d-flex justify-between">
+      <div class="filter">
+        <a href="/users" class="btn border-shadow update">
+          <span class="text-gradient"><i class="fas fa-arrow-alt-circle-left"></i></span>
+        </a>
+        <a href="/users/<%= user.id %>/edit" class="btn border-shadow update">
+          <span class="text-gradient"><i class="fas fa-user-edit"></i></span>
+        </a>
+      </div>
+    </div>
+    <%- include('../partials/deleteForm', { url: `/users/${user.id}` }) %>
   </div>
-  <div>
-    <%= user.name %>
-  </div>
-  <div>
-    <%= user.username %>
-  </div>
-  <div>
-    <%= user.password %>
-  </div>
-  <div>
-    <%= user.privilage %>
-  </div>
-</h2>
-<a href="/users/<%= user.id %>/edit">Edit</a>
-<%- include('../partials/deleteForm', { url: `/users/${user.id}` }) %>
+</main>

@@ -1,16 +1,16 @@
-<div>
+<div class="form-group">
     <label>Name</label>
-    <input type="text" name="name" value="<%= training.name %>">
+    <input type="text" name="name" value="<%= training.name %>" placeholder="Juan Dela Cruz">
 </div>
-<div>
+<div class="form-group">
     <label>Title</label>
-    <input type="text" name="title" value="<%= training.title %>">
+    <input type="text" name="title" value="<%= training.title %>" placeholder="NC-2">
 </div>
-<div>
+<div class="form-group">
     <label>Location</label>
-    <input type="text" name="location" value="<%= training.location %>">
+    <input type="text" name="location" value="<%= training.location %>" placeholder="NCR-VAL">
 </div>
-<% if(training.gender===null){ %>
+<% if(training.gender==="" ){ %>
     <div class="form-group">
         <label for="gender" class="text-light">Gender</label>
         <div class="radio inline">

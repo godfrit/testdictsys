@@ -1,21 +1,22 @@
-<div>
+<div class="form-group">
     <label>Company Name</label>
-    <input type="text" name="companyName" value="<%= partner.companyName %>">
+    <input type="text" name="companyName" value="<%= partner.companyName %>" placeholder="Threastone">
 </div>
-<div>
+<div class="form-group">
     <label>Company Description</label>
-    <input type="text" name="companyDescription" value="<%= partner.companyDescription %>">
+    <input type="text" name="companyDescription" value="<%= partner.companyDescription %>"
+        placeholder="Software Company">
 </div>
-<div>
+<div class="form-group">
     <label>Company Address</label>
-    <input type="text" name="companyAddress" value="<%= partner.companyAddress %>">
+    <input type="text" name="companyAddress" value="<%= partner.companyAddress %>" placeholder="California, USA">
 </div>
-<div>
+<div class="form-group">
     <label>Established Date</label>
     <input type="date" name="partnershipStartedDate"
         value="<%= partner.partnershipStartedDate == null ? '' : partner.partnershipStartedDate.toISOString().split('T')[0] %>">
 </div>
-<div>
+<div class="form-group">
     <label>Expiration Date</label>
     <input type="date" name="partnershipExpirationDate"
         value="<%= partner.partnershipExpirationDate == null ? '' : partner.partnershipExpirationDate.toISOString().split('T')[0] %>">

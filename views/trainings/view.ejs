@@ -1,19 +1,32 @@
-<h2>
-  <div>
-    <%= training.id %>
+<main id="site-main">
+  <div class="container">
+    <h2>
+      <div>
+        ID: <%= training.id %>
+      </div>
+      <div>
+        NAME: <%= training.name %>
+      </div>
+      <div>
+        GENDER: <%= training.gender %>
+      </div>
+      <div>
+        TRAINING TITLE: <%= training.title %>
+      </div>
+      <div>
+        TRAINING CENTER: <%= training.location %>
+      </div>
+    </h2>
+    <div class="box-nav d-flex justify-between">
+      <div class="filter">
+        <a href="/trainings" class="btn border-shadow update">
+          <span class="text-gradient"><i class="fas fa-arrow-alt-circle-left"></i></span>
+        </a>
+        <a href="/trainings/<%= training.id %>/edit" class="btn border-shadow update">
+          <span class="text-gradient"><i class="fas fa-user-edit"></i></span>
+        </a>
+      </div>
+    </div>
+    <%- include('../partials/deleteForm', { url: `/trainings/${training.id}` }) %>
   </div>
-  <div>
-    <%= training.name %>
-  </div>
-  <div>
-    <%= training.gender %>
-  </div>
-  <div>
-    <%= training.title %>
-  </div>
-  <div>
-    <%= training.location %>
-  </div>
-</h2>
-<a href="/trainings/<%= training.id %>/edit">Edit</a>
-<%- include('../partials/deleteForm', { url: `/trainings/${training.id}` }) %>
+</main>

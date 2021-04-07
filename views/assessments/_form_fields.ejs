@@ -1,20 +1,20 @@
-<div>
+<div class="form-group">
     <label>Examination</label>
-    <input type="text" name="examination" value="<%= assessment.examination %>">
+    <input type="text" name="examination" value="<%= assessment.examination %>" placeholder="Programming Language">
 </div>
-<div>
+<div class="form-group">
     <label>Region</label>
-    <input type="text" name="region" value="<%= assessment.region %>">
+    <input type="text" name="region" value="<%= assessment.region %>" placeholder="National Capital Region">
 </div>
-<div>
+<div class="form-group">
     <label>Ratio</label>
-    <input type="text" name="ratio" value="<%= assessment.ratio %>">
+    <input type="text" name="ratio" value="<%= assessment.ratio %>" placeholder="10:20">
 </div>
-<div>
+<div class="form-group">
     <label>Total</label>
-    <input type="text" name="total" value="<%= assessment.total %>">
+    <input type="text" name="total" value="<%= assessment.total %>" placeholder="30">
 </div>
-<div>
+<div class="form-group">
     <label>Assessment Date</label>
     <input type="date" name="assessmentDate"
         value="<%= assessment.assessmentDate == null ? '' : assessment.assessmentDate.toISOString().split('T')[0] %>">

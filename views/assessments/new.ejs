@@ -1,6 +1,21 @@
-<h2>New Assessment</h2>
-<form action="/assessments" method="POST">
-  <%- include('_form_fields') %>
-    <a href="/assessments">Cancel</a>
-    <button type="submit">Create</button>
-</form>
+<main id="site-main">
+  <div class="container">
+    <div class="box-nav d-flex justify-between">
+      <div class="filter">
+        <a href="/assessments"><i class="fas fa-arrow-alt-circle-left"></i> Back</a>
+      </div>
+    </div>
+    <div class="form-title text-center">
+      <h2 class="text-dark">New Assessment</h2>
+      <span class="text-light">Use the form to add a new assessment.</span>
+    </div>
+    <form action="/assessments" method="POST" id="add_user">
+      <div class="new_user">
+        <%- include('_form_fields') %>
+          <div class="form-group">
+            <button type="submit" class="btn text-dark update">Save</button>
+          </div>
+      </div>
+    </form>
+  </div>
+</main>

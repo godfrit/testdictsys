@@ -1,19 +1,32 @@
-<h2>
-  <div>
-    <%= proficiency.id %>
+<main id="site-main">
+  <div class="container">
+    <h2>
+      <div>
+        EXAMINATION ID: <%= proficiency.id %>
+      </div>
+      <div>
+        EXAMINATION: <%= proficiency.examination %>
+      </div>
+      <div>
+        MALE TO FEMALE RATIO: <%= proficiency.ratio %>
+      </div>
+      <div>
+        TOTAL EXAMINEES: <%= proficiency.total %>
+      </div>
+      <div>
+        DATE OF ASSESSMENT: <%= proficiency.examinationDate.toISOString().split('T')[0] %>
+      </div>
+    </h2>
+    <div class="box-nav d-flex justify-between">
+      <div class="filter">
+        <a href="/proficiencys" class="btn border-shadow update">
+          <span class="text-gradient"><i class="fas fa-arrow-alt-circle-left"></i></span>
+        </a>
+        <a href="/proficiencys/<%= proficiency.id %>/edit" class="btn border-shadow update">
+          <span class="text-gradient"><i class="fas fa-user-edit"></i></span>
+        </a>
+      </div>
+    </div>
+    <%- include('../partials/deleteForm', { url: `/proficiencys/${proficiency.id}` }) %>
   </div>
-  <div>
-    <%= proficiency.examination %>
-  </div>
-  <div>
-    <%= proficiency.ratio %>
-  </div>
-  <div>
-    <%= proficiency.total %>
-  </div>
-  <div>
-    <%= proficiency.examinationDate.toISOString().split('T')[0] %>
-  </div>
-</h2>
-<a href="/proficiencys/<%= proficiency.id %>/edit">Edit</a>
-<%- include('../partials/deleteForm', { url: `/proficiencys/${proficiency.id}` }) %>
+</main>

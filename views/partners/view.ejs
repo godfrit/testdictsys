@@ -1,22 +1,35 @@
-<h2>
-  <div>
-    <%= partner.id %>
+<main id="site-main">
+  <div class="container">
+    <h2>
+      <div>
+        COMPANY ID: <%= partner.id %>
+      </div>
+      <div>
+        COMPANY NAME: <%= partner.companyName %>
+      </div>
+      <div>
+        DESCRIPTION: <%= partner.companyDescription %>
+      </div>
+      <div>
+        ADDRESS: <%= partner.companyAddress %>
+      </div>
+      <div>
+        PARTNERSHIP INITIALIZATION: <%= partner.partnershipStartedDate.toISOString().split('T')[0] %>
+      </div>
+      <div>
+        PARTNERSHIP EXPIRATION: <%= partner.partnershipExpirationDate.toISOString().split('T')[0] %>
+      </div>
+    </h2>
+    <div class="box-nav d-flex justify-between">
+      <div class="filter">
+        <a href="/partners" class="btn border-shadow update">
+          <span class="text-gradient"><i class="fas fa-arrow-alt-circle-left"></i></span>
+        </a>
+        <a href="/partners/<%= partner.id %>/edit" class="btn border-shadow update">
+          <span class="text-gradient"><i class="fas fa-user-edit"></i></span>
+        </a>
+      </div>
+    </div>
+    <%- include('../partials/deleteForm', { url: `/partners/${partner.id}` }) %>
   </div>
-  <div>
-    <%= partner.companyName %>
-  </div>
-  <div>
-    <%= partner.companyDescription %>
-  </div>
-  <div>
-    <%= partner.companyAddress %>
-  </div>
-  <div>
-    <%= partner.partnershipStartedDate.toISOString().split('T')[0] %>
-  </div>
-  <div>
-    <%= partner.partnershipExpirationDate.toISOString().split('T')[0] %>
-  </div>
-</h2>
-<a href="/partners/<%= partner.id %>/edit">Edit</a>
-<%- include('../partials/deleteForm', { url: `/partners/${partner.id}` }) %>
+</main>

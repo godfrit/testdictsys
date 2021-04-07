@@ -1,52 +1,60 @@
-<h2>
-  <a href="/users/new">Add User Profile</a>
-</h2>
-<h2>Search User Profile</h2>
-<form action="/users" method="GET">
-  <label>Name</label>
-  <input type="text" name="name" value="<%= searchOptions.name %>">
-  <button type="submit">Search</button>
-</form>
-<table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Usernname</th>
-      <th>Password</th>
-      <th>Privilage</th>
-      <th></th>
-      <th>Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% users.forEach(user=> { %>
-      <tr>
-        <td>
-          <%= user.id.toString().substring(18,25) %>
-        </td>
-        <td>
-          <%= user.name %>
-        </td>
-        <td>
-          <%= user.username %>
-        </td>
-        <td>
-          <%= user.password %>
-        </td>
-        <td>
-          <%= user.privilage %>
-        </td>
-        <td>
-          <a href="/users/<%= user.id %>" class="btn border-shadow update">View</a>
-        </td>
-        <td>
-          <a href="/users/<%= user.id %>/edit" class="btn border-shadow update">Edit</a>
-        </td>
-        <td>
-          <%- include('../partials/deleteForm', { url: `/users/${user.id}` }) %>
-        </td>
-      </tr>
-      <% }) %>
-  </tbody>
-</table>
+<main id="site-main">
+  <div class="container">
+    <div class="box-nav d-flex justify-between">
+      <a href="/users/new" class="border-shadow">
+        <span class="text-gradient"><i class="fas fa-plus"></i> ENTRY</i></span>
+      </a>
+    </div>
+
+    <form action="/users" method="GET">
+      <div class="searchbar">
+        <input type="text" name="name" value="" placeholder="Juan Dela Cruz" value="<%= searchOptions.name %>">
+      </div>
+      <button type="submit" class="searchbutton"><span class="text-gradient"><i class="fas fa-search"></i>
+          SEARCH</i></span></button>
+    </form>
+
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Usernname</th>
+          <th>Password</th>
+          <th>Privilage</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% users.forEach(user=> { %>
+          <tr>
+            <td>
+              <%= user.id.toString().substring(18,25) %>
+            </td>
+            <td>
+              <%= user.name %>
+            </td>
+            <td>
+              <%= user.username %>
+            </td>
+            <td>
+              <%= user.password %>
+            </td>
+            <td>
+              <%= user.privilage %>
+            </td>
+            <td>
+              <a href="/users/<%= user.id %>" class="btn border-shadow update">
+                <span class="text-gradient"><i class="fas fa-file-alt"></i></span>
+              </a>
+              <a href="/users/<%= user.id %>/edit" class="btn border-shadow update">
+                <span class="text-gradient"><i class="fas fa-user-edit"></i></span>
+              </a>
+              <%- include('../partials/deleteForm', { url: `/users/${user.id}` }) %>
+            </td>
+          </tr>
+          <% }) %>
+      </tbody>
+    </table>
+  </div>
+</main>

@@ -1,22 +1,35 @@
-<h2>
-  <div>
-    <%= assessment.id %>
+<main id="site-main">
+  <div class="container">
+    <h2>
+      <div>
+        ASSESSMENT ID: <%= assessment.id %>
+      </div>
+      <div>
+        EXAMINATION: <%= assessment.examination %>
+      </div>
+      <div>
+        REGION: <%= assessment.region %>
+      </div>
+      <div>
+        MALE TO FEMALE RATIO: <%= assessment.ratio %>
+      </div>
+      <div>
+        TOTAL EXAMINEES: <%= assessment.total %>
+      </div>
+      <div>
+        DATE OF ASSESSMENT: <%= assessment.assessmentDate.toISOString().split('T')[0] %>
+      </div>
+    </h2>
+    <div class="box-nav d-flex justify-between">
+      <div class="filter">
+        <a href="/assessments" class="btn border-shadow update">
+          <span class="text-gradient"><i class="fas fa-arrow-alt-circle-left"></i></span>
+        </a>
+        <a href="/assessments/<%= assessment.id %>/edit" class="btn border-shadow update">
+          <span class="text-gradient"><i class="fas fa-user-edit"></i></span>
+        </a>
+      </div>
+    </div>
+    <%- include('../partials/deleteForm', { url: `/assessments/${assessment.id}` }) %>
   </div>
-  <div>
-    <%= assessment.examination %>
-  </div>
-  <div>
-    <%= assessment.region %>
-  </div>
-  <div>
-    <%= assessment.ratio %>
-  </div>
-  <div>
-    <%= assessment.total %>
-  </div>
-  <div>
-    <%= assessment.assessmentDate.toISOString().split('T')[0] %>
-  </div>
-</h2>
-<a href="/assessments/<%= assessment.id %>/edit">Edit</a>
-<%- include('../partials/deleteForm', { url: `/assessments/${assessment.id}` }) %>
+</main>

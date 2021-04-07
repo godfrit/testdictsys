@@ -1,6 +1,21 @@
-<h2>Edit Assessment Profile</h2>
-<form action="/assessments/<%= assessment.id %>?_method=PUT" method="POST">
-    <%- include('_form_fields') %>
-        <a href="/assessments/<%= assessment.id %>">Cancel</a>
-        <button type="submit">Update</button>
-</form>
+<main id="site-main">
+    <div class="container">
+        <div class="box-nav d-flex justify-between">
+            <div class="filter">
+                <a href="/assessments"><i class="fas fa-arrow-alt-circle-left"></i> Back</a>
+            </div>
+        </div>
+        <div class="form-title text-center">
+            <h2 class="text-dark">Update Assessment</h2>
+            <span class="text-light">Use the form to update an assessment details.</span>
+        </div>
+        <form action="/assessments/<%= assessment.id %>?_method=PUT" method="POST" id="add_user">
+            <div class="new_user">
+                <%- include('_form_fields') %>
+                    <div class="form-group">
+                        <button type="submit" class="btn text-dark update">Update</button>
+                    </div>
+            </div>
+        </form>
+    </div>
+</main>

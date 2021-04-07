@@ -1,16 +1,16 @@
-<div>
+<div class="form-group">
     <label>Examination</label>
-    <input type="text" name="examination" value="<%= proficiency.examination %>">
+    <input type="text" name="examination" value="<%= proficiency.examination %>" placeholder="Programming Language">
 </div>
-<div>
+<div class="form-group">
     <label>Ratio</label>
-    <input type="text" name="ratio" value="<%= proficiency.ratio %>">
+    <input type="text" name="ratio" value="<%= proficiency.ratio %>" placeholder="10:20">
 </div>
-<div>
+<div class="form-group">
     <label>Total</label>
-    <input type="text" name="total" value="<%= proficiency.total %>">
+    <input type="text" name="total" value="<%= proficiency.total %>" placeholder="30">
 </div>
-<div>
+<div class="form-group">
     <label>Examination Date</label>
     <input type="date" name="examinationDate"
         value="<%= proficiency.examinationDate == null ? '' : proficiency.examinationDate.toISOString().split('T')[0] %>">

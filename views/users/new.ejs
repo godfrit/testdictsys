@@ -1,6 +1,21 @@
-<h2>New User Profile</h2>
-<form action="/users" method="POST">
-  <%- include('_form_fields') %>
-    <a href="/users">Cancel</a>
-    <button type="submit">Create</button>
-</form>
+<main id="site-main">
+  <div class="container">
+    <div class="box-nav d-flex justify-between">
+      <div class="filter">
+        <a href="/users"><i class="fas fa-arrow-alt-circle-left"></i> Back</a>
+      </div>
+    </div>
+    <div class="form-title text-center">
+      <h2 class="text-dark">New User</h2>
+      <span class="text-light">Use the form to add a new user.</span>
+    </div>
+    <form action="/users" method="POST" id="add_user">
+      <div class="new_user">
+        <%- include('_form_fields') %>
+          <div class="form-group">
+            <button type="submit" class="btn text-dark update">Save</button>
+          </div>
+      </div>
+    </form>
+  </div>
+</main>

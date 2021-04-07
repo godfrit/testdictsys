@@ -1,52 +1,60 @@
-<h2>
-  <a href="/trainings/new">Add Trainee</a>
-</h2>
-<h2>Search Trainee</h2>
-<form action="/trainings" method="GET">
-  <label>Name</label>
-  <input type="text" name="name" value="<%= searchOptions.name %>">
-  <button type="submit">Search</button>
-</form>
-<table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Gender</th>
-      <th>Title</th>
-      <th>Location</th>
-      <th></th>
-      <th>Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% trainings.forEach(training=> { %>
-      <tr>
-        <td>
-          <%= training.id.toString().substring(18,25) %>
-        </td>
-        <td>
-          <%= training.name %>
-        </td>
-        <td>
-          <%= training.gender %>
-        </td>
-        <td>
-          <%= training.title %>
-        </td>
-        <td>
-          <%= training.location %>
-        </td>
-        <td>
-          <a href="/trainings/<%= training.id %>" class="btn border-shadow update">View</a>
-        </td>
-        <td>
-          <a href="/trainings/<%= training.id %>/edit" class="btn border-shadow update">Edit</a>
-        </td>
-        <td>
-          <%- include('../partials/deleteForm', { url: `/trainings/${training.id}` }) %>
-        </td>
-      </tr>
-      <% }) %>
-  </tbody>
-</table>
+<main id="site-main">
+  <div class="container">
+    <div class="box-nav d-flex justify-between">
+      <a href="/trainings/new" class="border-shadow">
+        <span class="text-gradient"><i class="fas fa-plus"></i> ENTRY</i></span>
+      </a>
+    </div>
+
+    <form action="/trainings" method="GET">
+      <div class="searchbar">
+        <input type="text" name="name" value="" placeholder="Juan Dela Cruz" value="<%= searchOptions.name %>">
+      </div>
+      <button type="submit" class="searchbutton"><span class="text-gradient"><i class="fas fa-search"></i>
+          SEARCH</i></span></button>
+    </form>
+
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Gender</th>
+          <th>Title</th>
+          <th>Location</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% trainings.forEach(training=> { %>
+          <tr>
+            <td>
+              <%= training.id.toString().substring(18,25) %>
+            </td>
+            <td>
+              <%= training.name %>
+            </td>
+            <td>
+              <%= training.gender %>
+            </td>
+            <td>
+              <%= training.title %>
+            </td>
+            <td>
+              <%= training.location %>
+            </td>
+            <td>
+              <a href="/trainings/<%= training.id %>" class="btn border-shadow update">
+                <span class="text-gradient"><i class="fas fa-file-alt"></i></span>
+              </a>
+              <a href="/trainings/<%= training.id %>/edit" class="btn border-shadow update">
+                <span class="text-gradient"><i class="fas fa-user-edit"></i></span>
+              </a>
+              <%- include('../partials/deleteForm', { url: `/trainings/${training.id}` }) %>
+            </td>
+          </tr>
+          <% }) %>
+      </tbody>
+    </table>
+  </div>
+</main>
